@@ -15,35 +15,55 @@
 		<h1> User Registration</h1>
 	
 		<form th:action="@{/process_register}" method="post"
-		style="max-width: 600px; margin: 0 auto;"
-		th:object="${user}"
-		>
+		style="max-width: 600px; margin: 0 auto;">
 			<div class="m-3">
 				<div class="form-group row">
 				<label class="col-form-label col-4">E-mail</label>
 					<div class="col-8">
-						<input type="email" class="form-control" th:field="*{email}" required/>
+						<input type="email" class="form-control" name="email" th:value="${user.email}" required/>
 					</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-form-label col-4">Password</label>
 					<div class="col-8">
-						<input type="password" class="form-control" th:field="*{password}" required
+						<input type="password" class="form-control" name="password" th:value="${user.password}" required
 						minlength="6" maxlength="10"/>
 					</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-form-label col-4">First name</label>
 					<div class="col-8">
-						<input type="text" class="form-control" th:field="*{firstName}" required
+						<input type="text" class="form-control" name="firstName" th:value="${user.firstName}" required
 						minlength="2" maxlength="20"/>
 					</div>
 				</div>
 				<div class="form-group row">
 				<label class="col-form-label col-4">Last Name</label>
 					<div class="col-8">
-						<input type="text" class="form-control" th:field="*{lastName}" required
+						<input type="text" class="form-control" name="lastName" th:value="${user.lastName}" required
 						minlength="2" maxlength="20"/>
+					</div>
+				</div>
+				<h2>More Details</h2>
+				<div class="form-group row">
+					<label class="col-form-label col-4">Zip Code</label>
+					<div class="col-8">
+						<input type="text" class="form-control" name="zipCode" th:value="${moreDetails.zipCode}" required
+							   minlength="2" maxlength="20"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-4">City</label>
+					<div class="col-8">
+						<input type="text" class="form-control" name="city" th:value="${moreDetails.city}" required
+							   minlength="2" maxlength="20"/>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label class="col-form-label col-4">Mobile Number</label>
+					<div class="col-8">
+						<input type="text" class="form-control" name="mobileNumber" th:value="${moreDetails.mobileNumber}" required
+							   minlength="2" maxlength="20"/>
 					</div>
 				</div>
 					<div>
@@ -53,6 +73,7 @@
 				</div>
 			</div>
 		</form>
+
 	</div>
 </body>
 </html>

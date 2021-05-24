@@ -24,11 +24,18 @@ public class UserRepositoryTests {
 	
 	@Test
 	public void testCreateUser() {
+
+		MoreDetails samDetails = new MoreDetails();
+		samDetails.setCity("Gurgaon");
+		samDetails.setMobileNumber(8888888);
+		samDetails.setZipCode(210012);
+
 		User user = new User();
 		user.setEmail("sam@gmail.com");
 		user.setPassword("sfisher123");
 		user.setFirstName("Sam");
 		user.setLastName("Fisher");
+		user.setMoredetails(samDetails);
 		
 		User savedUser = repo.save(user);
 		
@@ -38,13 +45,13 @@ public class UserRepositoryTests {
 		
 	}
 	
-	@Test
-	public void testFindUserByEmail() {
-		String email = "sam@gmail.com";
-		
-		User user = repo.findByEmail(email);
-		
-		assertThat(user).isNotNull();
-		
-	}
+//	@Test
+//	public void testFindUserByEmail() {
+//		String email = "sam@gmail.com";
+//
+//		User user = repo.findByEmail(email);
+//
+//		assertThat(user).isNotNull();
+//
+//	}
 }

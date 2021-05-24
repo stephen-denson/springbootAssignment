@@ -1,11 +1,6 @@
 package com.example.demo;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "users")
@@ -26,6 +21,20 @@ public class User {
 	
 	@Column(name = "last_name", nullable = false, length = 20)
 	private String lastName;
+
+	@OneToOne(cascade = CascadeType.ALL, fetch= FetchType.EAGER)
+	@JoinColumn(name="moreDetail_FK")
+	private MoreDetails moredetails;
+
+
+	public MoreDetails getMoredetails() {
+		return moredetails;
+	}
+
+	public void setMoredetails(MoreDetails moredetails) {
+		this.moredetails = moredetails;
+	}
+
 
 	public Long getId() {
 		return id;
